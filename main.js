@@ -24,9 +24,6 @@ document.querySelectorAll('.navtoggle').forEach(btn=>btn.addEventListener('click
   btn.setAttribute('aria-expanded',open);
 }));
 
-// tijdslots
-document.querySelectorAll('.slot').forEach(s=>s.addEventListener('click',()=>{document.querySelectorAll('.slot').forEach(x=>x.classList.remove('on'));s.classList.add('on')}));
-
 // interesse-pills op contactpagina (meerdere mogelijk)
 document.querySelectorAll('.popt').forEach(p=>p.addEventListener('click',()=>p.classList.toggle('on')));
 
