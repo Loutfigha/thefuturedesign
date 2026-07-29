@@ -8,7 +8,7 @@
 <title>Projecten | The Future Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 <link rel="canonical" href="https://thefuturedesign.nl/cases.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -84,8 +84,18 @@
 
 <section>
   <div class="wrap">
+    <div class="pillopts casefilters rv" role="group" aria-label="Filter projecten op tag">
+      <button type="button" class="cfilter on" data-filter="all">Alle</button>
+      <button type="button" class="cfilter" data-filter="Webdesign">Webdesign</button>
+      <button type="button" class="cfilter" data-filter="E-commerce">E-commerce</button>
+      <button type="button" class="cfilter" data-filter="Webshop">Webshop</button>
+      <button type="button" class="cfilter" data-filter="Strategie">Strategie</button>
+      <button type="button" class="cfilter" data-filter="Branding">Branding</button>
+      <button type="button" class="cfilter" data-filter="SEO">SEO</button>
+      <button type="button" class="cfilter" data-filter="UX">UX</button>
+    </div>
     <div class="cgrid">
-      <a class="ccard rv" href="case-rebrand.html">
+      <a class="ccard rv" href="case-rebrand.html" data-tags="Webdesign,Strategie,Branding">
         <div class="cimg ci1"><div class="mock"><div class="b s"></div><div class="hero-b hb1"></div><div class="b"></div></div></div>
         <div class="cbody">
           <div class="tags"><span class="tag">Webdesign</span><span class="tag">Strategie</span><span class="tag">Branding</span></div>
@@ -94,7 +104,7 @@
           <span class="metric">2,5x meer aanvragen</span>
         </div>
       </a>
-      <a class="ccard rv" href="case-webshop.html">
+      <a class="ccard rv" href="case-webshop.html" data-tags="E-commerce,Webshop,SEO">
         <div class="cimg ci2"><div class="mock"><div class="b s"></div><div class="hero-b hb2"></div><div class="b"></div></div></div>
         <div class="cbody">
           <div class="tags"><span class="tag">E-commerce</span><span class="tag">Webshop</span><span class="tag">SEO</span></div>
@@ -103,7 +113,7 @@
           <span class="metric hot">+92% meer bestellingen</span>
         </div>
       </a>
-      <a class="ccard rv" href="case-candysafe.html">
+      <a class="ccard rv" href="case-candysafe.html" data-tags="E-commerce,Webshop,UX">
         <div class="cimg ci1"><div class="mock"><div class="b s"></div><div class="hero-b hb1"></div><div class="b"></div></div></div>
         <div class="cbody">
           <div class="tags"><span class="tag">E-commerce</span><span class="tag">Webshop</span><span class="tag">UX</span></div>
@@ -113,6 +123,7 @@
         </div>
       </a>
     </div>
+    <p class="casefilters-empty" hidden>Geen projecten met deze tag, probeer een andere filter.</p>
   </div>
 </section>
 
@@ -217,6 +228,6 @@
   </div>
 </div>
 
-<script src="main.js?v=5"></script>
+<script src="main.js?v=6"></script>
 </body>
 </html>

@@ -31,6 +31,28 @@ document.querySelectorAll('.popt').forEach(p=>p.addEventListener('click',()=>{
   if(interesseField)interesseField.value=[...document.querySelectorAll('.popt.on')].map(o=>o.textContent).join(', ');
 }));
 
+// projecten filteren op tag
+(function(){
+  const bar=document.querySelector('.casefilters');
+  if(!bar)return;
+  const buttons=bar.querySelectorAll('.cfilter');
+  const cards=document.querySelectorAll('.cgrid .ccard');
+  const empty=document.querySelector('.casefilters-empty');
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const filter=btn.dataset.filter;
+    let visible=0;
+    cards.forEach(card=>{
+      const tags=(card.dataset.tags||'').split(',');
+      const show=filter==='all'||tags.includes(filter);
+      card.hidden=!show;
+      if(show)visible++;
+    });
+    if(empty)empty.hidden=visible>0;
+  }));
+})();
+
 // contactformulier -> stuurt naar info@thefuturedesign.nl via FormSubmit
 const form=document.querySelector('form.contactform');
 if(form)form.addEventListener('submit',async e=>{

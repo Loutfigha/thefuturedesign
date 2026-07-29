@@ -238,6 +238,7 @@ nav{position:sticky;top:14px;z-index:60;display:flex;flex-direction:column;align
 .werk{background:var(--soft)}
 .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .ccard{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;transition:transform .25s,box-shadow .25s;display:block}
+.ccard[hidden]{display:none}
 .ccard:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(28,27,40,.08)}
 .cimg{height:225px;position:relative;display:flex;align-items:flex-end;justify-content:center}
 .ci1{background:linear-gradient(135deg,#EFEBFB,#E4E9F8)}
@@ -356,6 +357,12 @@ nav{position:sticky;top:14px;z-index:60;display:flex;flex-direction:column;align
 .popt{font-size:12px;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid var(--line);color:var(--gray);cursor:pointer;transition:all .2s;background:#fff}
 .popt:hover{border-color:#D5D3DE}
 .popt.on{background:var(--grad);border-color:transparent;color:#fff}
+
+.cfilter{font-size:12px;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid var(--line);color:var(--gray);cursor:pointer;transition:all .2s;background:#fff}
+.cfilter:hover{border-color:#D5D3DE}
+.cfilter.on{background:var(--grad);border-color:transparent;color:#fff}
+.casefilters{margin-bottom:28px}
+.casefilters-empty{text-align:center;color:var(--gray);font-size:13.5px;padding:40px 0}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field{margin-bottom:16px}
 .field label{font-size:12px;font-weight:600;display:block;margin-bottom:6px}
