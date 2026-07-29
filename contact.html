@@ -8,7 +8,7 @@
 <title>Contact | The Future Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <link rel="canonical" href="https://thefuturedesign.nl/contact.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -86,6 +86,9 @@
   <div class="wrap contactgrid">
     <div class="formcard rv">
       <form class="contactform">
+        <input type="hidden" name="_subject" value="Nieuw bericht via contactformulier — thefuturedesign.nl">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="interesse" id="interesseField" value="">
         <span class="flbl">Waar wil je mee starten?</span>
         <div class="pillopts">
           <button type="button" class="popt">Webdesign</button>
@@ -94,17 +97,23 @@
           <button type="button" class="popt">Campagnes</button>
         </div>
         <div class="frow">
-          <div class="field"><label for="naam">Naam *</label><input id="naam" type="text" placeholder="Jouw naam" required></div>
-          <div class="field"><label for="bedrijf">Bedrijfsnaam</label><input id="bedrijf" type="text" placeholder="Jouw bedrijf"></div>
+          <div class="field"><label for="naam">Naam *</label><input id="naam" name="naam" type="text" placeholder="Jouw naam" required></div>
+          <div class="field"><label for="bedrijf">Bedrijfsnaam</label><input id="bedrijf" name="bedrijf" type="text" placeholder="Jouw bedrijf"></div>
         </div>
         <div class="frow">
-          <div class="field"><label for="email">E-mailadres *</label><input id="email" type="email" placeholder="naam@bedrijf.nl" required></div>
-          <div class="field"><label for="tel">Telefoonnummer</label><input id="tel" type="tel" placeholder="+31 6 12345678"></div>
+          <div class="field"><label for="email">E-mailadres *</label><input id="email" name="email" type="email" placeholder="naam@bedrijf.nl" required></div>
+          <div class="field"><label for="tel">Telefoonnummer</label><input id="tel" name="telefoon" type="tel" placeholder="+31 6 12345678"></div>
         </div>
-        <div class="field"><label for="msg">Waar kunnen we je mee helpen?</label><textarea id="msg" placeholder="Vertel kort wat je wilt bouwen of verbeteren…"></textarea></div>
+        <div class="field"><label for="msg">Waar kunnen we je mee helpen?</label><textarea id="msg" name="bericht" placeholder="Vertel kort wat je wilt bouwen of verbeteren…"></textarea></div>
         <label class="consent"><input type="checkbox" required> Ik ga akkoord met het privacybeleid van The Future Design.</label>
         <button class="btn btn-primary" type="submit">Verstuur bericht <span class="arr"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></button>
+        <p class="formerror" hidden>Versturen lukte niet. Mail ons rechtstreeks via <a href="mailto:info@thefuturedesign.nl">info@thefuturedesign.nl</a>.</p>
       </form>
+      <div class="formsent" hidden>
+        <div class="chip p">✓</div>
+        <h3>Bedankt voor je bericht!</h3>
+        <p>We nemen binnen 24 uur contact met je op.</p>
+      </div>
     </div>
     <div>
       <div class="sidecard rv">
@@ -191,6 +200,7 @@
       <h3>Gratis e-book</h3>
       <p>3 tips om de zichtbaarheid van je website te vergroten. Direct toepasbaar, geen fluff.</p>
       <form class="ebookform" novalidate>
+        <input type="hidden" name="_subject" value="Nieuwe e-book download — thefuturedesign.nl">
         <input type="email" name="email" placeholder="jouw@email.nl" required>
         <button class="btn btn-primary" type="submit">Download e-book <span class="arr"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></button>
       </form>
@@ -204,6 +214,6 @@
   </div>
 </div>
 
-<script src="main.js?v=4"></script>
+<script src="main.js?v=5"></script>
 </body>
 </html>

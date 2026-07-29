@@ -25,13 +25,31 @@ document.querySelectorAll('.navtoggle').forEach(btn=>btn.addEventListener('click
 }));
 
 // interesse-pills op contactpagina (meerdere mogelijk)
-document.querySelectorAll('.popt').forEach(p=>p.addEventListener('click',()=>p.classList.toggle('on')));
+const interesseField=document.querySelector('#interesseField');
+document.querySelectorAll('.popt').forEach(p=>p.addEventListener('click',()=>{
+  p.classList.toggle('on');
+  if(interesseField)interesseField.value=[...document.querySelectorAll('.popt.on')].map(o=>o.textContent).join(', ');
+}));
 
-// formulier (placeholder, koppel aan eigen endpoint)
+// contactformulier -> stuurt naar info@thefuturedesign.nl via FormSubmit
 const form=document.querySelector('form.contactform');
-if(form)form.addEventListener('submit',e=>{
+if(form)form.addEventListener('submit',async e=>{
   e.preventDefault();
-  alert('Bedankt! Dit formulier is nog niet gekoppeld, verbind het met je eigen e-mail of CRM.');
+  const errorEl=form.querySelector('.formerror');
+  const sentEl=document.querySelector('.formsent');
+  errorEl.hidden=true;
+  try{
+    const res=await fetch('https://formsubmit.co/ajax/info@thefuturedesign.nl',{
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:new FormData(form)
+    });
+    if(!res.ok)throw new Error('send failed');
+    form.hidden=true;
+    sentEl.hidden=false;
+  }catch(err){
+    errorEl.hidden=false;
+  }
 });
 
 // e-book pop-up
@@ -54,7 +72,11 @@ if(form)form.addEventListener('submit',e=>{
 
   ebookForm.addEventListener('submit',e=>{
     e.preventDefault();
-    // placeholder: koppel aan eigen e-mail/CRM-tool om het adres te bewaren
+    fetch('https://formsubmit.co/ajax/info@thefuturedesign.nl',{
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:new FormData(ebookForm)
+    }).catch(()=>{});
     localStorage.setItem(KEY,'1');
     intro.hidden=true;
     success.hidden=false;
