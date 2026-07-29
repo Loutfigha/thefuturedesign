@@ -18,7 +18,7 @@ section{padding:104px 0}
 .dim{color:#ABA9B6}
 
 /* nav — zwevende pill */
-nav{position:sticky;top:14px;z-index:60;display:flex;justify-content:center;padding:0 16px}
+nav{position:sticky;top:14px;z-index:60;display:flex;flex-direction:column;align-items:center;padding:0 16px}
 .navpill{display:flex;align-items:center;justify-content:space-between;gap:30px;width:100%;max-width:920px;background:rgba(253,253,254,.86);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:9px 10px 9px 22px;box-shadow:0 10px 30px rgba(28,27,40,.07)}
 .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px}
 .flame{width:26px;height:30px;flex:none}
@@ -26,6 +26,13 @@ nav{position:sticky;top:14px;z-index:60;display:flex;justify-content:center;padd
 .navlinks a{transition:color .2s}
 .navlinks a:hover,.navlinks a.act{color:var(--ink)}
 .navlinks a.act{color:var(--purple)}
+
+.navtoggle{display:none;flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer;padding:0}
+.navtoggle span{width:16px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s ease,opacity .25s ease}
+.navdrop{display:none;flex-direction:column;gap:4px;width:100%;max-width:920px;margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:14px;box-shadow:0 10px 30px rgba(28,27,40,.07)}
+.navdrop a{padding:13px 16px;border-radius:14px;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.navdrop a.act{color:var(--purple);background:var(--soft)}
+.navdrop .btn{justify-content:center;margin-top:6px}
 
 /* knoppen — pill + cirkelpijl */
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:13.5px;padding:10px 10px 10px 22px;border-radius:999px;cursor:pointer;border:none;transition:transform .2s;font-family:'Inter',sans-serif}
@@ -395,6 +402,12 @@ footer{background:var(--dark);color:#fff;margin-top:104px;padding:84px 0 36px}
 
 @media(max-width:900px){
   .navlinks{display:none}
+  .navpill .btn-primary{display:none}
+  .navtoggle{display:flex}
+  nav.open .navdrop{display:flex}
+  nav.open .navtoggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  nav.open .navtoggle span:nth-child(2){opacity:0}
+  nav.open .navtoggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
   .h2grid{grid-template-columns:1fr;gap:44px}
   .hc1{right:0}.hc2{left:0}
   .svcgrid{grid-template-columns:1fr}

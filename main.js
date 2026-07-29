@@ -18,6 +18,12 @@ const co=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:.7});
 document.querySelectorAll('.stat b, .mstat b').forEach(el=>co.observe(el));
 
+// mobiel menu
+document.querySelectorAll('.navtoggle').forEach(btn=>btn.addEventListener('click',()=>{
+  const nav=btn.closest('nav'),open=nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+}));
+
 // tijdslots
 document.querySelectorAll('.slot').forEach(s=>s.addEventListener('click',()=>{document.querySelectorAll('.slot').forEach(x=>x.classList.remove('on'));s.classList.add('on')}));
 
