@@ -33,3 +33,36 @@ if(form)form.addEventListener('submit',e=>{
   e.preventDefault();
   alert('Bedankt! Dit formulier is nog niet gekoppeld, verbind het met je eigen e-mail of CRM.');
 });
+
+// e-book pop-up
+(function(){
+  const pop=document.querySelector('.ebookpop');
+  if(!pop)return;
+  const KEY='ebookPopupSeen';
+  const closeBtn=pop.querySelector('.ebookclose');
+  const intro=pop.querySelector('.ebookintro');
+  const success=pop.querySelector('.ebooksuccess');
+  const ebookForm=pop.querySelector('.ebookform');
+
+  function dismiss(){pop.hidden=true;localStorage.setItem(KEY,'1')}
+  closeBtn.addEventListener('click',dismiss);
+  pop.addEventListener('click',e=>{if(e.target===pop)dismiss()});
+
+  if(!localStorage.getItem(KEY)){
+    setTimeout(()=>{pop.hidden=false},10000);
+  }
+
+  ebookForm.addEventListener('submit',e=>{
+    e.preventDefault();
+    // placeholder: koppel aan eigen e-mail/CRM-tool om het adres te bewaren
+    localStorage.setItem(KEY,'1');
+    intro.hidden=true;
+    success.hidden=false;
+    const a=document.createElement('a');
+    a.href='downloads/3-tips-zichtbaarheid-thefuturedesign.pdf';
+    a.download='';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  });
+})();

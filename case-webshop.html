@@ -8,7 +8,7 @@
 <title>Case Bestehondenvoer.nl: webshop & advies | The Future Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 <link rel="canonical" href="https://thefuturedesign.nl/case-webshop.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -207,6 +207,29 @@
   <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.703 4.605 1.912 6.472L4 29l7.72-1.884A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16.001 3zm.001 21.818a9.77 9.77 0 0 1-4.98-1.363l-.357-.212-3.61.881.882-3.522-.232-.363A9.8 9.8 0 0 1 6.18 15c0-5.415 4.406-9.82 9.822-9.82S25.822 9.585 25.822 15s-4.406 9.818-9.82 9.818zm5.383-7.36c-.295-.148-1.744-.86-2.014-.958-.27-.098-.467-.148-.664.148-.196.295-.762.958-.934 1.155-.172.196-.344.221-.639.074-.295-.148-1.246-.459-2.373-1.464-.877-.782-1.47-1.749-1.642-2.044-.172-.295-.018-.454.13-.601.134-.133.295-.344.443-.516.148-.172.196-.295.295-.492.098-.196.049-.369-.025-.516-.074-.148-.664-1.6-.91-2.193-.24-.577-.484-.5-.664-.51l-.566-.01c-.196 0-.516.074-.787.369-.27.295-1.032 1.01-1.032 2.462s1.057 2.855 1.204 3.052c.148.196 2.08 3.176 5.04 4.454.704.304 1.253.486 1.681.622.706.224 1.348.192 1.856.117.566-.084 1.744-.713 1.99-1.401.246-.688.246-1.278.172-1.401-.074-.123-.27-.196-.566-.344z"/></svg>
 </a>
 
-<script src="main.js?v=3"></script>
+<div class="ebookpop" id="ebookpop" hidden>
+  <div class="ebookcard">
+    <button class="ebookclose" type="button" aria-label="Sluiten">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+    <div class="ebookintro">
+      <div class="chip p">📘</div>
+      <h3>Gratis e-book</h3>
+      <p>3 tips om de zichtbaarheid van je website te vergroten. Direct toepasbaar, geen fluff.</p>
+      <form class="ebookform" novalidate>
+        <input type="email" name="email" placeholder="jouw@email.nl" required>
+        <button class="btn btn-primary" type="submit">Download e-book <span class="arr"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></button>
+      </form>
+      <p class="ebooknote">We gebruiken je e-mail alleen om het e-book te versturen.</p>
+    </div>
+    <div class="ebooksuccess" hidden>
+      <div class="chip p">✓</div>
+      <h3>Bedankt!</h3>
+      <p>Je e-book wordt gedownload. Check ook je downloads-map als er niets gebeurt.</p>
+    </div>
+  </div>
+</div>
+
+<script src="main.js?v=4"></script>
 </body>
 </html>
