@@ -36,18 +36,32 @@ document.querySelectorAll('.carshell').forEach(shell=>{
   const track=shell.querySelector('.cartrack');
   const prev=shell.querySelector('.carbtn.prev');
   const next=shell.querySelector('.carbtn.next');
+  const dots=shell.parentElement.querySelectorAll('.cardot');
   if(!track||!prev||!next)return;
+  function cardStep(){
+    const card=track.querySelector('.ccard');
+    return (card?card.getBoundingClientRect().width:320)+20;
+  }
   function update(){
-    prev.disabled=track.scrollLeft<10;
-    next.disabled=track.scrollLeft>=track.scrollWidth-track.clientWidth-10;
+    const atStart=track.scrollLeft<10;
+    const atEnd=track.scrollLeft>=track.scrollWidth-track.clientWidth-10;
+    prev.disabled=atStart;
+    next.disabled=atEnd;
+    shell.classList.toggle('at-start',atStart);
+    shell.classList.toggle('at-end',atEnd);
+    if(dots.length){
+      const active=Math.round(track.scrollLeft/cardStep());
+      dots.forEach((d,i)=>d.classList.toggle('on',i===Math.min(active,dots.length-1)));
+    }
   }
   function step(dir){
-    const card=track.querySelector('.ccard');
-    const amount=(card?card.getBoundingClientRect().width:320)+20;
-    track.scrollBy({left:dir*amount,behavior:'smooth'});
+    track.scrollBy({left:dir*cardStep(),behavior:'smooth'});
   }
   prev.addEventListener('click',()=>step(-1));
   next.addEventListener('click',()=>step(1));
+  dots.forEach(dot=>dot.addEventListener('click',()=>{
+    track.scrollTo({left:Number(dot.dataset.index)*cardStep(),behavior:'smooth'});
+  }));
   track.addEventListener('scroll',update,{passive:true});
   window.addEventListener('resize',update);
   update();
