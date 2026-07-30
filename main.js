@@ -31,6 +31,28 @@ document.querySelectorAll('.popt').forEach(p=>p.addEventListener('click',()=>{
   if(interesseField)interesseField.value=[...document.querySelectorAll('.popt.on')].map(o=>o.textContent).join(', ');
 }));
 
+// projectencarousel
+document.querySelectorAll('.carshell').forEach(shell=>{
+  const track=shell.querySelector('.cartrack');
+  const prev=shell.querySelector('.carbtn.prev');
+  const next=shell.querySelector('.carbtn.next');
+  if(!track||!prev||!next)return;
+  function update(){
+    prev.disabled=track.scrollLeft<10;
+    next.disabled=track.scrollLeft>=track.scrollWidth-track.clientWidth-10;
+  }
+  function step(dir){
+    const card=track.querySelector('.ccard');
+    const amount=(card?card.getBoundingClientRect().width:320)+20;
+    track.scrollBy({left:dir*amount,behavior:'smooth'});
+  }
+  prev.addEventListener('click',()=>step(-1));
+  next.addEventListener('click',()=>step(1));
+  track.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+});
+
 // projecten filteren op tag
 (function(){
   const bar=document.querySelector('.casefilters');
