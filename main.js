@@ -26,10 +26,14 @@ document.querySelectorAll('.navtoggle').forEach(btn=>btn.addEventListener('click
 
 // interesse-pills op contactpagina (meerdere mogelijk)
 const interesseField=document.querySelector('#interesseField');
-document.querySelectorAll('.popt').forEach(p=>p.addEventListener('click',()=>{
-  p.classList.toggle('on');
-  if(interesseField)interesseField.value=[...document.querySelectorAll('.popt.on')].map(o=>o.textContent).join(', ');
-}));
+document.querySelectorAll('.popt').forEach(p=>{
+  p.setAttribute('aria-pressed','false');
+  p.addEventListener('click',()=>{
+    const on=p.classList.toggle('on');
+    p.setAttribute('aria-pressed',String(on));
+    if(interesseField)interesseField.value=[...document.querySelectorAll('.popt.on')].map(o=>o.textContent).join(', ');
+  });
+});
 
 // projectencarousel
 document.querySelectorAll('.carshell').forEach(shell=>{
@@ -74,9 +78,12 @@ document.querySelectorAll('.carshell').forEach(shell=>{
   const buttons=bar.querySelectorAll('.cfilter');
   const cards=document.querySelectorAll('.cgrid .ccard');
   const empty=document.querySelector('.casefilters-empty');
+  if(empty)empty.setAttribute('aria-live','polite');
+  buttons.forEach(b=>b.setAttribute('aria-pressed',b.classList.contains('on')?'true':'false'));
   buttons.forEach(btn=>btn.addEventListener('click',()=>{
-    buttons.forEach(b=>b.classList.remove('on'));
+    buttons.forEach(b=>{b.classList.remove('on');b.setAttribute('aria-pressed','false')});
     btn.classList.add('on');
+    btn.setAttribute('aria-pressed','true');
     const filter=btn.dataset.filter;
     let visible=0;
     cards.forEach(card=>{
