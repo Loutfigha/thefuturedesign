@@ -172,19 +172,20 @@ nav{position:sticky;top:14px;z-index:60;display:flex;flex-direction:column;align
 .sh h2{font-family:var(--font-head);font-weight:600;letter-spacing:-.03em;font-size:clamp(28px,3.6vw,40px);line-height:1.15;color:var(--text-primary)}
 .sh p{color:var(--text-secondary);margin-top:14px;font-size:16px}
 
-/* diensten — vier gelijke kaarten (Card) */
-.svcgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.svccard{position:relative;background:var(--surface-1);border:1px solid var(--line-subtle);border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column;transition:border-color .18s ease-out,transform .18s ease-out}
-.svccard:hover{border-color:var(--line-strong);transform:translateY(-2px)}
-.svcicon{width:48px;height:48px;border-radius:var(--radius-pill);display:flex;align-items:center;justify-content:center;margin-bottom:22px;background:var(--surface-2)}
-.svcicon svg{width:22px;height:22px}
-.svccard h3{font-size:22px;margin-bottom:10px;color:var(--text-primary)}
-.svccard>p{font-size:15px;color:var(--text-secondary);margin-bottom:22px}
-.svcpoints{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.svcpoints li{font-size:12px;font-weight:500;color:var(--text-secondary);background:var(--surface-2);border-radius:var(--radius-pill);padding:5px 13px}
-.svclink{margin-top:auto;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;color:var(--text-accent)}
-.svclink span{transition:transform .18s ease-out;display:inline-block}
-.svccard:hover .svclink span{transform:translateX(4px)}
+/* home — vier disciplines als bento-kaarten met eigen orb-object */
+.bento4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.bentocard{position:relative;background:var(--surface-1);border:1px solid var(--line-subtle);border-radius:var(--radius-lg);padding:var(--space-6) var(--space-5) var(--space-5);display:flex;flex-direction:column;min-height:270px;transition:border-color .18s ease-out,transform .18s ease-out}
+.bentocard:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+.bentocard .bn{position:absolute;top:var(--space-5);right:var(--space-5);font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--text-label)}
+.bobj{width:64px;height:64px;border-radius:50%;margin-bottom:var(--space-5);flex:none}
+.bobj.nebula{box-shadow:0 10px 28px rgba(139,92,246,.35);background:radial-gradient(circle at 70% 78%,rgba(255,153,102,.5),rgba(255,153,102,0) 32%),radial-gradient(circle at 32% 28%,#EAF0FF 0%,#8B5CF6 30%,#3D6BFF 62%,#0D1A3A 100%)}
+.bobj.glacier{box-shadow:0 10px 28px rgba(63,216,242,.3);background:radial-gradient(circle at 70% 78%,rgba(255,153,102,.4),rgba(255,153,102,0) 32%),radial-gradient(circle at 32% 28%,#EAF0FF 0%,#3FD8F2 30%,#3D6BFF 62%,#0D1A3A 100%)}
+.bobj.prism{box-shadow:0 10px 28px rgba(255,61,139,.3);background:radial-gradient(circle at 70% 78%,rgba(255,153,102,.6),rgba(255,153,102,0) 32%),radial-gradient(circle at 32% 28%,#EAF0FF 0%,#FF9966 25%,#FF3D8B 55%,#8E3CF7 100%)}
+.bentocard h3{font-size:19px;margin-bottom:6px;color:var(--text-primary)}
+.bentocard>p{font-size:13.5px;color:var(--text-secondary);margin-bottom:20px}
+.bentocard .barr{margin-top:auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;color:var(--text-primary);transition:transform .18s ease-out,border-color .18s ease-out,color .18s ease-out}
+.bentocard .barr svg{width:14px;height:14px}
+.bentocard:hover .barr{transform:translateX(3px);border-color:var(--text-accent);color:var(--text-accent)}
 
 /* cases */
 .werk{background:var(--navy)}
@@ -432,7 +433,7 @@ footer{background:var(--navy);color:var(--text-primary);margin-top:var(--space-1
   nav.open .navtoggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
   .h2grid{grid-template-columns:1fr;gap:44px}
   .hc1{right:0}.hc2{left:0}
-  .svcgrid{grid-template-columns:1fr}
+  .bento4{grid-template-columns:1fr 1fr}
   .cgrid,.split,.contactgrid{grid-template-columns:1fr}
   .stats,.steps,.mstats,.team{grid-template-columns:1fr 1fr}
   .vgrid,.dlv{grid-template-columns:1fr 1fr}
@@ -443,4 +444,4 @@ footer{background:var(--navy);color:var(--text-primary);margin-top:var(--space-1
   .step,.stat{border-left:none;padding-left:0}
   .step::before,.step h3,.step p{margin-left:0!important}
 }
-@media(max-width:560px){.stats,.steps,.mstats,.team,.vgrid,.dlv{grid-template-columns:1fr}}
+@media(max-width:560px){.stats,.steps,.mstats,.team,.vgrid,.dlv,.bento4{grid-template-columns:1fr}}
