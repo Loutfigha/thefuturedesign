@@ -20,6 +20,7 @@
   --gray:var(--text-secondary); --line:var(--line-subtle); --ink:var(--text-primary); --bg:var(--surface-0); --soft:var(--surface-1); --dark:var(--navy);
 }
 *{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--surface-0);color:var(--text-primary);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:-.03em}
@@ -414,8 +415,11 @@ footer{background:var(--navy);color:var(--text-primary);margin-top:var(--space-1
 .fbot{border-top:1px solid var(--line-subtle);padding-top:24px;display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-secondary);flex-wrap:wrap;gap:10px}
 .fbot a:hover{color:var(--text-primary)}
 
-/* reveal — 600ms, gedempte stagger (Motion chapter) */
-.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0)*60ms)}
+/* reveal — 600ms, gedempte stagger (Motion chapter). main.js zet 'rv-armed' als allereerste
+   statement, vóór de IntersectionObserver: verbergen en onthullen staan daardoor altijd garant
+   voor elkaar — als main.js faalt of geblokkeerd wordt, krijgt .rv nooit opacity:0 en blijft alles
+   gewoon zichtbaar, in plaats van voorgoed verborgen. */
+.rv-armed .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0)*60ms)}
 .rv.in{opacity:1;transform:none}
 
 @media (prefers-reduced-motion: reduce){

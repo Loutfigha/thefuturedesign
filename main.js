@@ -1,4 +1,6 @@
-// reveal met stagger per sectie
+// reveal met stagger per sectie — 'rv-armed' garandeert dat verbergen (style.css) en onthullen
+// (hieronder) altijd samen gebeuren: faalt dit script, dan blijft .rv gewoon zichtbaar
+document.documentElement.classList.add('rv-armed');
 document.querySelectorAll('section,header,footer').forEach(sec=>{
   sec.querySelectorAll('.rv').forEach((el,i)=>el.style.setProperty('--d',i%6));
 });
@@ -68,6 +70,10 @@ document.querySelectorAll('.carshell').forEach(shell=>{
   }));
   track.addEventListener('scroll',update,{passive:true});
   window.addEventListener('resize',update);
+  // toetsenbordfocus op een kaart buiten beeld moet de carousel meescrollen
+  track.querySelectorAll('.ccard').forEach(card=>card.addEventListener('focus',()=>{
+    card.scrollIntoView({block:'nearest',inline:'nearest',behavior:reduce?'auto':'smooth'});
+  }));
   update();
 });
 
@@ -127,12 +133,34 @@ if(form)form.addEventListener('submit',async e=>{
   const success=pop.querySelector('.ebooksuccess');
   const ebookForm=pop.querySelector('.ebookform');
 
-  function dismiss(){pop.hidden=true;localStorage.setItem(KEY,'1')}
+  let lastFocus=null;
+  function focusables(){
+    return [...pop.querySelectorAll('a,button,input,select,textarea')].filter(el=>!el.hidden&&el.offsetParent!==null);
+  }
+  function dismiss(){
+    pop.hidden=true;localStorage.setItem(KEY,'1');
+    if(lastFocus)lastFocus.focus();
+  }
+  function trapTab(e){
+    if(e.key==='Escape'){dismiss();return}
+    if(e.key!=='Tab')return;
+    const items=focusables();
+    if(!items.length)return;
+    const first=items[0],last=items[items.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
   closeBtn.addEventListener('click',dismiss);
   pop.addEventListener('click',e=>{if(e.target===pop)dismiss()});
+  pop.addEventListener('keydown',trapTab);
 
   if(!localStorage.getItem(KEY)){
-    setTimeout(()=>{pop.hidden=false},10000);
+    setTimeout(()=>{
+      lastFocus=document.activeElement;
+      pop.hidden=false;
+      const items=focusables();
+      if(items.length)items[0].focus();
+    },10000);
   }
 
   ebookForm.addEventListener('submit',e=>{
