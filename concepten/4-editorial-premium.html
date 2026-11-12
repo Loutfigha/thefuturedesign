@@ -67,12 +67,12 @@ nav{padding:26px 0}
 .heropanel{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:
   radial-gradient(ellipse 80% 70% at 30% 20%,rgba(176,131,87,.22),transparent 60%),
   linear-gradient(155deg,#2a2621 0%,#171512 60%,#0d0c0b 100%)}
-.heropanel::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 2px,transparent 2px 4px);mix-blend-mode:overlay;opacity:.5}
+.heropanel::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");mix-blend-mode:overlay;opacity:.3}
 .heropanel .ph-label{position:absolute;bottom:22px;left:22px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,224,.62)}
 .presscard{position:absolute;bottom:-30px;right:-22px;width:230px;background:var(--cream);color:var(--text-ink);border-radius:14px;padding:16px;box-shadow:0 30px 60px rgba(0,0,0,.4);transition:transform .25s ease-out}
 .presscard:hover{transform:translateY(-4px)}
-.presscard .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:8px}
-.presscard h4{font-family:var(--font-head);font-size:16px;font-weight:500;line-height:1.3;margin-bottom:10px}
+.presscard .tag{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:8px}
+.presscard .ptitle{font-family:var(--font-head);font-size:16px;font-weight:500;line-height:1.3;margin-bottom:10px}
 .presscard .stat{font-size:12.5px;color:var(--text-ink-soft)}
 .presscard .stat b{color:var(--text-ink)}
 
@@ -95,7 +95,7 @@ nav{padding:26px 0}
 .caseshot .mockblock{position:absolute;top:22px;left:22px;right:22px;bottom:70px;border-radius:8px;background:linear-gradient(135deg,rgba(176,131,87,.3),rgba(242,236,224,.06))}
 .casemeta{background:var(--ink);padding:20px 22px 22px}
 .casetags{display:flex;gap:7px;margin-bottom:12px;flex-wrap:wrap}
-.casetag{font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--text-secondary);border:1px solid var(--line-dark);padding:5px 12px;border-radius:999px}
+.casetag{font-size:11.5px;font-weight:600;letter-spacing:.03em;color:var(--text-secondary);border:1px solid var(--line-dark);padding:5px 12px;border-radius:999px}
 .caserowbottom{display:flex;justify-content:space-between;align-items:center}
 .casemeta h3{font-family:var(--font-head);font-size:19px;font-weight:500;color:var(--text-primary)}
 .casearrow{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;flex:none;transition:border-color .2s,transform .2s}
@@ -159,7 +159,7 @@ footer{padding:40px 0;text-align:center;color:var(--text-secondary);font-size:13
       <span class="ph-label">[ beeldmateriaal volgt ]</span>
       <div class="presscard" style="transition:transform .25s ease-out, opacity .7s cubic-bezier(.22,1,.36,1), translate .7s cubic-bezier(.22,1,.36,1)">
         <div class="tag">Case · ROHI</div>
-        <h4>Shoppen zonder frictie</h4>
+        <p class="ptitle">Shoppen zonder frictie</p>
         <div class="stat"><b>−42%</b> bouncepercentage, eerste inschatting</div>
       </div>
     </div>

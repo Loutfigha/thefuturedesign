@@ -38,6 +38,33 @@
         ],
         "createdAt": "2026-11-12T10:01:50.187Z",
         "reason": "this comp's world (patent drawing sheet) is explicitly india-ink-on-white-bond per the concept-seed source material; cream bond paper is domain-correct, not a generic warm-default fallback"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "concepten/4-editorial-premium.html"
+        ],
+        "createdAt": "2026-11-12T10:17:16.923Z",
+        "reason": "Verified via rendered computed-style check (Playwright getComputedStyle climb): text-secondary (#a79e8c) never actually renders against --cream in the DOM — every instance (.casetag, .navlinks, .hero p, .logotag, .serviceshead/.servicerow p, footer) resolves to the dark --ink background (~7:1 contrast, confirmed). Static scan false positive."
+      },
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "concepten/4-editorial-premium.html"
+        ],
+        "createdAt": "2026-11-12T10:17:16.934Z",
+        "reason": "Brief-pinned: user explicitly asked for a direction matching webfluencer.nl, an editorial/magazine-register site whose own hero uses a roman+italic-accent serif treatment. This comp only italicizes the accent clause (\"die het verschil maken\"), not the full oversized headline — the detector's own description names editorial/magazine register as a legitimate context for this pattern."
+      },
+      {
+        "rule": "overused-font",
+        "value": "fraunces",
+        "files": [
+          "concepten/4-editorial-premium.html"
+        ],
+        "createdAt": "2026-11-12T10:17:16.945Z",
+        "reason": "Same brief-pinned editorial register as above: Fraunces was chosen to match the warm high-contrast editorial serif observed in the webfluencer.nl reference the user asked to follow, not reached for as a reflexive default."
       }
     ]
   }
