@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept 4 — Editorial Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#121110; --ink-raised:#1c1a17;
+  --cream:#f2ece0; --cream-deep:#e7ddc9;
+  --text-primary:#f2ece0; --text-secondary:#a79e8c;
+  --text-ink:#171512; --text-ink-soft:#5e584c;
+  --accent:#b08357; --accent-deep:#8f5a2e;
+  --line-dark:#33302b; --line-light:#d8cdb6;
+  --font-head:'Fraunces',serif; --font-body:'Hanken Grotesk',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--ink);color:var(--text-primary);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--ink-raised);border:3px solid var(--ink);border-radius:6px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+h1,h2{font-family:var(--font-head);font-weight:500;letter-spacing:-.01em}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+nav{padding:26px 0}
+.navrow{display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--font-head);font-size:20px;font-weight:500}
+.navlinks{display:flex;gap:30px;font-size:14px;color:var(--text-secondary)}
+.navlinks a:hover{color:var(--text-primary)}
+.navbtn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;border:1.5px solid var(--line-dark);padding:10px 18px 10px 20px;border-radius:999px;transition:border-color .2s}
+.navbtn:hover{border-color:var(--text-primary)}
+.navbtn .arr{width:22px;height:22px;border-radius:50%;background:var(--text-primary);color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
+.navbtn .arr svg{width:11px;height:11px}
+
+.hero{padding:40px 0 64px}
+.herogrid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.eyebrow .rule{width:30px;height:1px;background:var(--line-dark)}
+.eyebrow span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary)}
+.hero h1{font-size:clamp(38px,5vw,58px);line-height:1.08;margin-bottom:22px;max-width:580px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{font-size:16.5px;color:var(--text-secondary);max-width:440px;margin-bottom:32px}
+.ctarow{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.btn{font-family:var(--font-body);font-size:14px;font-weight:600;padding:14px 26px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .18s ease-out,opacity .18s ease-out}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--cream);color:var(--text-ink)}
+.btn-primary:hover{opacity:.9}
+.btn-ghost{background:transparent;color:var(--text-primary);border-color:var(--line-dark);display:inline-flex;align-items:center;gap:10px}
+.btn-ghost .arr{width:24px;height:24px;border-radius:50%;background:var(--ink-raised);display:inline-flex;align-items:center;justify-content:center}
+.btn-ghost .arr svg{width:11px;height:11px}
+.btn-ghost:hover{border-color:var(--text-primary)}
+
+.logorow{display:flex;gap:28px;align-items:center;flex-wrap:wrap;opacity:.75}
+.logotag{font-family:var(--font-head);font-style:italic;font-size:15px;color:var(--text-secondary)}
+
+/* hero visual: atmospheric panel + floating press card */
+.heropanel{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:
+  radial-gradient(ellipse 80% 70% at 30% 20%,rgba(176,131,87,.22),transparent 60%),
+  linear-gradient(155deg,#2a2621 0%,#171512 60%,#0d0c0b 100%)}
+.heropanel::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 2px,transparent 2px 4px);mix-blend-mode:overlay;opacity:.5}
+.heropanel .ph-label{position:absolute;bottom:22px;left:22px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,224,.62)}
+.presscard{position:absolute;bottom:-30px;right:-22px;width:230px;background:var(--cream);color:var(--text-ink);border-radius:14px;padding:16px;box-shadow:0 30px 60px rgba(0,0,0,.4);transition:transform .25s ease-out}
+.presscard:hover{transform:translateY(-4px)}
+.presscard .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:8px}
+.presscard h4{font-family:var(--font-head);font-size:16px;font-weight:500;line-height:1.3;margin-bottom:10px}
+.presscard .stat{font-size:12.5px;color:var(--text-ink-soft)}
+.presscard .stat b{color:var(--text-ink)}
+
+/* case section (cream break) */
+.caseband{background:var(--cream);color:var(--text-ink)}
+.caseband .wrap{padding:96px 32px 100px}
+.casehead{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:56px}
+.casehead h2{font-size:clamp(32px,4vw,46px);max-width:520px}
+.pagewrap{text-align:right}
+.pageno{font-family:var(--font-head);font-size:15px;color:var(--text-ink-soft)}
+.pageline{width:120px;height:1px;background:var(--line-light);margin-top:8px;position:relative}
+.pageline::before{content:"";position:absolute;left:0;top:0;height:1px;width:33%;background:var(--text-ink)}
+
+.caserow{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.casecard{perspective:1400px}
+.casetilt{transform:rotateX(3deg) rotateY(-4deg);transform-style:preserve-3d;border-radius:16px;overflow:hidden;box-shadow:0 36px 70px rgba(23,21,18,.18);transition:transform .35s ease-out}
+.casecard:hover .casetilt{transform:rotateX(0deg) rotateY(0deg)}
+.caseshot{aspect-ratio:16/10;background:var(--ink-raised);position:relative;display:flex;align-items:flex-end;padding:22px}
+.caseshot .mockline{width:100%;height:10px;border-radius:5px;background:rgba(242,236,224,.14);margin-bottom:8px}
+.caseshot .mockblock{position:absolute;top:22px;left:22px;right:22px;bottom:70px;border-radius:8px;background:linear-gradient(135deg,rgba(176,131,87,.3),rgba(242,236,224,.06))}
+.casemeta{background:var(--ink);padding:20px 22px 22px}
+.casetags{display:flex;gap:7px;margin-bottom:12px;flex-wrap:wrap}
+.casetag{font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--text-secondary);border:1px solid var(--line-dark);padding:5px 12px;border-radius:999px}
+.caserowbottom{display:flex;justify-content:space-between;align-items:center}
+.casemeta h3{font-family:var(--font-head);font-size:19px;font-weight:500;color:var(--text-primary)}
+.casearrow{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;flex:none;transition:border-color .2s,transform .2s}
+.casecard:hover .casearrow{border-color:var(--text-primary);transform:rotate(45deg)}
+.casearrow svg{width:13px;height:13px}
+
+/* services as a numbered contents list */
+section.services{padding:104px 0}
+.serviceshead{max-width:540px;margin-bottom:56px}
+.serviceshead h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:14px}
+.serviceshead p{color:var(--text-secondary);font-size:15.5px}
+.servicelist{border-top:1px solid var(--line-dark)}
+.servicerow{display:grid;grid-template-columns:70px 1.1fr 1.4fr;gap:28px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line-dark)}
+.servicerow .sn{font-family:var(--font-head);font-style:italic;font-size:19px;color:var(--accent)}
+.servicerow h3{font-size:21px;font-weight:500}
+.servicerow p{font-size:14.5px;color:var(--text-secondary);max-width:440px}
+
+/* closing */
+.closing{background:var(--cream);color:var(--text-ink)}
+.closing .wrap{padding:100px 32px;text-align:center}
+.closing h2{font-size:clamp(30px,4vw,44px);max-width:680px;margin:0 auto 32px;line-height:1.25}
+.closing .btn-primary{background:var(--text-ink);color:var(--cream)}
+
+footer{padding:40px 0;text-align:center;color:var(--text-secondary);font-size:13px}
+
+@media(max-width:900px){
+  .herogrid{grid-template-columns:1fr;gap:44px}
+  .navlinks{display:none}
+  .caserow{grid-template-columns:1fr}
+  .servicerow{grid-template-columns:1fr;gap:8px}
+  .presscard{position:static;width:100%;margin-top:18px}
+  .heropanel{aspect-ratio:16/10}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap navrow">
+    <div class="brand">the future design</div>
+    <div class="navlinks"><a href="#cases">Projecten</a><a href="#diensten">Wat we doen</a><a href="#">Over ons</a></div>
+    <a class="navbtn" href="#">Neem contact op <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap herogrid">
+    <div>
+      <div class="eyebrow rv in"><span class="rule"></span><span>Webdesign &amp; digital marketing · Almere</span></div>
+      <h1 class="rv in">Merken bouwen <em>die het verschil maken.</em></h1>
+      <p class="rv in">Eén team voor webdesign, webshop, strategie en campagnes — gebouwd om te converteren, niet alleen om mooi te zijn.</p>
+      <div class="ctarow rv in">
+        <button class="btn btn-primary">Vertel ons je idee</button>
+        <a class="btn btn-ghost" href="#cases">Bekijk projecten <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span></a>
+      </div>
+      <div class="logorow rv in">
+        <span class="logotag">ROHI</span><span class="logotag">iWannaBurnFat</span><span class="logotag">Sakeenah Reizen</span><span class="logotag">Bestehondenvoer.nl</span>
+      </div>
+    </div>
+    <div class="heropanel rv in" style="transition-delay:80ms">
+      <span class="ph-label">[ beeldmateriaal volgt ]</span>
+      <div class="presscard" style="transition:transform .25s ease-out, opacity .7s cubic-bezier(.22,1,.36,1), translate .7s cubic-bezier(.22,1,.36,1)">
+        <div class="tag">Case · ROHI</div>
+        <h4>Shoppen zonder frictie</h4>
+        <div class="stat"><b>−42%</b> bouncepercentage, eerste inschatting</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="caseband" id="cases">
+  <div class="wrap">
+    <div class="casehead">
+      <h2>Projecten die dat bewijzen.</h2>
+      <div class="pagewrap"><div class="pageno">01 — 03</div><div class="pageline"></div></div>
+    </div>
+    <div class="caserow">
+      <a class="casecard" href="#">
+        <div class="casetilt">
+          <div class="caseshot"><div class="mockblock"></div><div class="mockline" style="width:55%"></div></div>
+          <div class="casemeta">
+            <div class="casetags"><span class="casetag">E-commerce</span><span class="casetag">Webshop</span><span class="casetag">SEO</span></div>
+            <div class="caserowbottom"><h3>Bestehondenvoer.nl</h3><span class="casearrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></div>
+          </div>
+        </div>
+      </a>
+      <a class="casecard" href="#">
+        <div class="casetilt">
+          <div class="caseshot"><div class="mockblock"></div><div class="mockline" style="width:40%"></div></div>
+          <div class="casemeta">
+            <div class="casetags"><span class="casetag">Webdesign</span><span class="casetag">Branding</span><span class="casetag">UX</span></div>
+            <div class="caserowbottom"><h3>iWannaBurnFat</h3><span class="casearrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="diensten">
+  <div class="wrap">
+    <div class="serviceshead">
+      <h2>Vier onderdelen, één team.</h2>
+      <p>Elk specialisme werkt door op het andere — niet als losse opdrachten, maar als één systeem.</p>
+    </div>
+    <div class="servicelist">
+      <div class="servicerow"><span class="sn">01</span><h3>Webdesign</h3><p>Maatwerk sites die bezoekers moeiteloos naar contact leiden.</p></div>
+      <div class="servicerow"><span class="sn">02</span><h3>E-commerce</h3><p>Webshops waar bestellen vanzelfsprekend voelt.</p></div>
+      <div class="servicerow"><span class="sn">03</span><h3>Strategie</h3><p>Een plan op basis van data, niet van gevoel.</p></div>
+      <div class="servicerow"><span class="sn">04</span><h3>Campagnes</h3><p>Advertenties die budget omzetten in aanvragen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Zullen we eens sparren over waar jouw merk naartoe kan?</h2>
+    <button class="btn btn-primary">Plan een vrijblijvend gesprek</button>
+  </div>
+</section>
+
+<footer>the future design · Almere, Nederland · info@thefuturedesign.nl</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+})();
+</script>
+
+</body>
+</html>
