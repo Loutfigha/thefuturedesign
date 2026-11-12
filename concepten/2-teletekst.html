@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept 2: Pagina 100: the future design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --white:#f2f2f2; --yellow:#f2c84b; --cyan:#3fd6e8; --green:#4fcf6a; --red:#ff5b5b;
+  --font-tt:'VT323',monospace; --font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-mono);background:var(--bg);color:var(--white);line-height:1.5;font-size:16px}
+::selection{background:var(--yellow);color:#000}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#000}
+::-webkit-scrollbar-thumb{background:#2a2a2a;border:2px solid #000}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+.tt{font-family:var(--font-tt);font-size:28px;line-height:1.15;letter-spacing:.01em}
+
+nav{border-bottom:2px solid #2a2a2a;padding:14px 0}
+.navrow{display:flex;align-items:center;justify-content:space-between;max-width:860px;margin:0 auto;padding:0 24px}
+.navbrand{font-family:var(--font-tt);font-size:26px;color:var(--yellow)}
+.navlinks{display:flex;gap:22px;font-size:13.5px;color:var(--white)}
+.navlinks a:hover{color:var(--cyan)}
+.navbtn{font-family:var(--font-mono);font-size:13px;font-weight:700;color:#000;background:var(--green);padding:8px 16px;border-radius:2px}
+
+.pagehead{padding:36px 0 18px;border-bottom:2px solid #2a2a2a}
+.pageheadrow{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.pagenum{font-family:var(--font-tt);font-size:40px;color:var(--yellow)}
+.subpage{font-family:var(--font-mono);font-size:13px;color:#8a8a8a}
+.subpage b{color:var(--cyan)}
+
+.hero{padding:40px 0 56px}
+.hero h1{font-family:var(--font-tt);font-size:clamp(34px,5.6vw,52px);line-height:1.08;color:var(--white);margin-bottom:18px}
+.hero h1 .cy{color:var(--cyan)}
+.hero p{font-family:var(--font-mono);font-size:15.5px;color:#c9c9c9;max-width:520px;margin-bottom:28px}
+.ctarow{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:var(--font-mono);font-size:13.5px;font-weight:700;padding:13px 22px;border-radius:2px;border:2px solid var(--white);cursor:pointer;background:transparent;color:var(--white)}
+.btn:hover{background:var(--white);color:#000}
+.btn-y{border-color:var(--yellow);color:#000;background:var(--yellow)}
+.btn-y:hover{background:transparent;color:var(--yellow)}
+
+.dial{font-size:12.5px;color:#8a8a8a;margin-top:30px}
+.dial b{font-family:var(--font-tt);font-size:17px;color:var(--yellow);letter-spacing:.08em}
+
+section{padding:52px 0;border-bottom:2px solid #1a1a1a}
+.sechead{font-family:var(--font-tt);font-size:26px;font-weight:400;color:var(--yellow);margin:0 0 22px}
+.index{border:2px solid #2a2a2a}
+.indexrow{display:flex;align-items:center;gap:18px;padding:16px 20px;border-bottom:1px solid #2a2a2a}
+.indexrow:last-child{border-bottom:none}
+.indexrow .num{font-family:var(--font-tt);font-size:24px;color:var(--cyan);width:54px;flex:none}
+.indexrow h3{font-size:16px;font-weight:700;color:var(--white)}
+.indexrow p{font-size:13px;color:#9a9a9a;margin-top:2px}
+.indexrow:hover{background:#0c0c0c}
+
+.tickerwrap{border:2px solid #2a2a2a;padding:22px 24px}
+.tickerrow{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tickercell b{font-family:var(--font-tt);font-size:38px;color:var(--cyan);display:block}
+.tickercell span{font-size:12px;color:#9a9a9a}
+.tickernote{margin-top:16px;font-size:12.5px;color:#8a8a8a;font-style:italic}
+
+.reveal{border:2px solid #2a2a2a;padding:18px 20px;margin-bottom:14px}
+.reveal summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--white)}
+.reveal summary::-webkit-details-marker{display:none}
+.reveal summary .client{font-weight:700}
+.reveal summary .flag{font-family:var(--font-tt);font-size:15px;color:var(--yellow)}
+.reveal[open] summary .flag{color:var(--red)}
+.revealbody{margin-top:14px;padding-top:14px;border-top:1px dashed #2a2a2a;font-size:13.5px;color:#c9c9c9}
+.revealbody .res{display:inline-block;margin-top:8px;font-family:var(--font-tt);font-size:22px;color:var(--green)}
+
+.closing{text-align:center;padding:64px 0}
+.closing .tt{font-size:30px;color:var(--white);margin-bottom:24px}
+.keypad{display:inline-grid;grid-template-columns:repeat(3,56px);gap:8px}
+.key{aspect-ratio:1;border:2px solid #3a3a3a;display:flex;align-items:center;justify-content:center;font-family:var(--font-tt);font-size:22px;color:var(--white);border-radius:2px}
+.key.go{background:var(--green);color:#000;border-color:var(--green);font-size:14px;font-family:var(--font-mono);font-weight:700}
+
+footer{padding:28px 0;text-align:center;color:#8a8a8a;font-size:12.5px}
+
+@media(max-width:720px){
+  .navlinks{display:none}
+  .tickerrow{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.subpage b{animation:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <div class="navbrand">the future design</div>
+    <div class="navlinks"><a href="#diensten">201 Diensten</a><a href="#werk">301 Projecten</a><a href="#">401 Over ons</a></div>
+    <a class="navbtn" href="#">Plan gesprek</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap pagehead">
+    <div class="pageheadrow">
+      <div class="pagenum">P100</div>
+      <div class="subpage">subpagina <b id="subpage">1</b>/4 · ververst automatisch</div>
+    </div>
+  </div>
+  <div class="wrap hero">
+    <h1>Wij bouwen merken <span class="cy">die online het verschil maken.</span></h1>
+    <p>Van eerste schets tot campagne: één team voor webdesign, webshop, strategie en advertenties. Kies hieronder een pagina.</p>
+    <div class="ctarow">
+      <button class="btn btn-y">Vertel ons je idee</button>
+      <button class="btn">Bekijk projecten</button>
+    </div>
+    <div class="dial">TOETS EEN PAGINA IN &nbsp; <b>1 0 0</b></div>
+  </div>
+</header>
+
+<section id="diensten">
+  <div class="wrap">
+    <h2 class="sechead">INDEX · WAT WE DOEN</h2>
+    <div class="index">
+      <a class="indexrow" href="#"><span class="num">201</span><div><h3>Webdesign</h3><p>Maatwerk sites die bezoekers naar contact leiden</p></div></a>
+      <a class="indexrow" href="#"><span class="num">202</span><div><h3>E-commerce</h3><p>Webshops waar bestellen vanzelfsprekend voelt</p></div></a>
+      <a class="indexrow" href="#"><span class="num">203</span><div><h3>Strategie</h3><p>Een plan op basis van data, niet van gevoel</p></div></a>
+      <a class="indexrow" href="#"><span class="num">204</span><div><h3>Campagnes</h3><p>Advertenties die budget omzetten in aanvragen</p></div></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sechead">LIVE CIJFERS</h2>
+    <div class="tickerwrap">
+      <div class="tickerrow">
+        <div class="tickercell"><b>50+</b><span>projecten afgerond</span></div>
+        <div class="tickercell"><b>98%</b><span>tevreden klanten</span></div>
+        <div class="tickercell"><b>24u</b><span>reactietijd</span></div>
+      </div>
+      <div class="tickernote">cijfers zijn een eerste inschatting, geen geaudit resultaat</div>
+    </div>
+  </div>
+</section>
+
+<section id="werk">
+  <div class="wrap">
+    <h2 class="sechead">ONDERZOEK · DRUK OP REVEAL</h2>
+    <details class="reveal">
+      <summary><span class="client">ROHI · webshop &amp; UX</span><span class="flag">REVEAL</span></summary>
+      <div class="revealbody">Damesmode-webshop herontworpen rond gebruiksgemak: navigatie, filters en productpagina's.<br><span class="res">-42% bouncepercentage</span></div>
+    </details>
+    <details class="reveal">
+      <summary><span class="client">iWannaBurnFat · webdesign</span><span class="flag">REVEAL</span></summary>
+      <div class="revealbody">Nieuwe website die de energie van het merk direct voelbaar maakt.<br><span class="res">+73% meer aanvragen</span></div>
+    </details>
+    <details class="reveal">
+      <summary><span class="client">Bestehondenvoer.nl · webshop</span><span class="flag">REVEAL</span></summary>
+      <div class="revealbody">Nieuwe webshop met slimme filters en adviescontent voor hondenvoer.<br><span class="res">+92% meer bestellingen</span></div>
+    </details>
+  </div>
+</section>
+
+<section class="closing" style="border-bottom:none">
+  <div class="wrap">
+    <div class="tt">KIES EEN PAGINA OM TE BEGINNEN</div>
+    <div class="keypad">
+      <div class="key">1</div><div class="key">2</div><div class="key">3</div>
+      <div class="key">4</div><div class="key">5</div><div class="key">6</div>
+      <div class="key">7</div><div class="key">8</div><div class="key">9</div>
+      <div class="key">—</div><a class="key go" href="#">GA</a><div class="key">0</div>
+    </div>
+  </div>
+</section>
+
+<footer>the future design · Almere, Nederland · info@thefuturedesign.nl</footer>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  var el = document.getElementById('subpage');
+  var n = 1;
+  setInterval(function(){
+    n = n === 4 ? 1 : n + 1;
+    el.textContent = n;
+  }, 3200);
+})();
+</script>
+
+</body>
+</html>

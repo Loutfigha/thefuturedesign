@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept 1 — Het gemaal dat blijft doorwerken</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@500;700;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --steel-dark:#12181d; --steel:#1c252d; --steel-light:#2a3540;
+  --enamel:#eef0ea; --enamel-dim:#c9cdc2;
+  --ink:#0f1417; --ink-soft:#4b555c;
+  --hazard:#bb3a26; --ochre:#c98b2e; --green:#2f7a4c;
+  --rivet:#454e55;
+  --font-head:'Big Shoulders Stencil',sans-serif;
+  --font-body:'Archivo',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--steel-dark);color:var(--enamel);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+::selection{background:var(--hazard);color:var(--enamel)}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+::-webkit-scrollbar{width:12px}
+::-webkit-scrollbar-track{background:var(--steel-dark)}
+::-webkit-scrollbar-thumb{background:var(--steel-light);border:3px solid var(--steel-dark);border-radius:6px}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:var(--font-head);font-weight:700;letter-spacing:.01em;text-transform:uppercase}
+
+/* riveted plate texture */
+.plate{position:relative;background:var(--enamel);color:var(--ink);border-radius:4px;box-shadow:0 18px 40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(0,0,0,.08)}
+.plate::before,.plate::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8d969c,var(--rivet) 60%);box-shadow:0 1px 2px rgba(0,0,0,.5)}
+.plate::before{top:10px;left:10px}
+.plate::after{top:10px;right:10px}
+.plate .rivet-bl{position:absolute;bottom:10px;left:10px;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8d969c,var(--rivet) 60%);box-shadow:0 1px 2px rgba(0,0,0,.5)}
+.plate .rivet-br{position:absolute;bottom:10px;right:10px;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8d969c,var(--rivet) 60%);box-shadow:0 1px 2px rgba(0,0,0,.5)}
+
+nav{position:sticky;top:0;z-index:50;background:var(--steel);border-bottom:3px solid var(--rivet);box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.navrow{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1180px;margin:0 auto}
+.brand{font-family:var(--font-head);font-size:19px;letter-spacing:.04em}
+.navlinks{display:flex;gap:28px;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--enamel-dim)}
+.navlinks a:hover{color:var(--ochre)}
+.navbtn{font-family:var(--font-head);font-size:14px;letter-spacing:.04em;text-transform:uppercase;background:var(--hazard);color:#fff;padding:10px 20px;border-radius:3px;box-shadow:0 6px 16px rgba(0,0,0,.45)}
+
+/* hero */
+.hero{padding:88px 0 96px;position:relative;overflow:hidden}
+.herogrid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(40px,5.2vw,64px);line-height:1.02;margin-bottom:22px;color:var(--enamel)}
+.hero h1 .hz{color:var(--hazard)}
+.hero p{font-size:17.5px;color:var(--enamel-dim);max-width:480px;margin-bottom:34px}
+.ctarow{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:var(--font-head);font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:14px 26px;border-radius:3px;border:none;cursor:pointer;transition:transform .15s ease-out}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--hazard);color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.45)}
+.btn-ghost{background:transparent;color:var(--enamel);border:2px solid var(--steel-light);box-shadow:none}
+
+/* gauge */
+.gaugeplate{padding:34px 30px 26px;text-align:center}
+.gaugelabel{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:6px}
+.gauge{width:100%;max-width:300px;margin:0 auto}
+.needle{transform-origin:150px 150px;animation:settle 1.8s cubic-bezier(.22,1,.36,1) both}
+@keyframes settle{0%{transform:rotate(-95deg)}55%{transform:rotate(18deg)}75%{transform:rotate(2deg)}100%{transform:rotate(8deg)}}
+.gaugereadout{font-family:var(--font-head);font-size:34px;margin-top:8px}
+.gaugesub{font-size:12.5px;color:var(--ink-soft)}
+
+/* logrow */
+.logrow{border-top:3px solid var(--rivet);border-bottom:3px solid var(--rivet);background:var(--steel);padding:26px 0}
+.logtrack{display:flex;gap:40px;align-items:center;overflow-x:auto;scrollbar-width:none}
+.logtrack::-webkit-scrollbar{display:none}
+.logtag{flex:none;font-family:var(--font-head);font-size:13px;letter-spacing:.05em;color:var(--enamel-dim);border:1px solid var(--steel-light);padding:8px 16px;border-radius:3px;white-space:nowrap}
+
+/* kleppen (valves/services) */
+section{padding:96px 0}
+.sh{max-width:640px;margin-bottom:52px}
+.sh h2{font-size:clamp(26px,3.2vw,36px);color:var(--enamel)}
+.sh p{color:var(--enamel-dim);margin-top:12px;font-size:15.5px}
+.valverow{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.valve{padding:26px 20px;text-align:center}
+.valve:nth-child(1){transform:translateY(-6px)}
+.valve:nth-child(3){transform:translateY(8px)}
+.vdial{width:84px;height:84px;margin:0 auto 14px;border-radius:50%;background:conic-gradient(var(--hazard) 0 12%,var(--ochre) 12% 32%,var(--green) 32% 100%);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 7px var(--enamel),0 4px 10px rgba(0,0,0,.25)}
+.vdial b{font-family:var(--font-head);font-size:18px;color:#fff;background:var(--ink);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.valve h3{font-size:18px;letter-spacing:.03em;margin-bottom:6px}
+.valve p{font-size:13.5px;color:var(--ink-soft)}
+
+/* logboek / cases */
+.logwall{background:var(--steel);border-top:3px solid var(--rivet)}
+.logboek{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.logentry{padding:24px 22px 22px}
+.logentry:nth-child(2){transform:rotate(-.6deg)}
+.logentry:nth-child(3){transform:rotate(.5deg) translateY(6px)}
+.logdate{font-size:12.5px;letter-spacing:.1em;color:var(--ink-soft);margin-bottom:8px}
+.logentry h3{font-size:18px;margin-bottom:8px}
+.logentry p{font-size:13.5px;color:var(--ink-soft);margin-bottom:12px}
+.logresult{display:inline-block;font-family:var(--font-head);font-size:13px;color:#fff;background:var(--green);padding:5px 12px;border-radius:3px}
+.logcaveat{display:block;margin-top:10px;font-size:12.5px;color:var(--enamel-dim);font-style:italic}
+
+/* closing */
+.closing{text-align:center}
+.lever{display:inline-flex;flex-direction:column;align-items:center;gap:16px}
+.leverhandle{width:150px;height:64px;background:var(--hazard);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:19px;color:#fff;letter-spacing:.05em;box-shadow:0 14px 30px rgba(0,0,0,.5);transition:transform .15s ease-out}
+.lever:hover .leverhandle{transform:translateY(-3px)}
+.leverbase{width:90px;height:14px;background:var(--rivet);border-radius:4px}
+
+footer{padding:40px 0;text-align:center;color:var(--enamel-dim);font-size:12.5px;border-top:3px solid var(--rivet)}
+
+@media(max-width:860px){
+  .herogrid{grid-template-columns:1fr;gap:40px}
+  .valverow{grid-template-columns:1fr 1fr}
+  .logboek{grid-template-columns:1fr}
+  .navlinks{display:none}
+}
+@media(prefers-reduced-motion:reduce){.needle{animation:none;transform:rotate(8deg)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <div class="brand">the future design</div>
+    <div class="navlinks"><a href="#">Projecten</a><a href="#">Wat we doen</a><a href="#">Over ons</a><a href="#">Contact</a></div>
+    <a class="navbtn" href="#">Plan gesprek</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap herogrid">
+    <div>
+      <h1>Het gemaal <span class="hz">dat blijft doorwerken.</span></h1>
+      <p>Terwijl jij slaapt, houdt jouw website het peil op orde. The Future Design bouwt en onderhoudt de installatie: webdesign, webshop, strategie en campagnes, altijd op druk.</p>
+      <div class="ctarow">
+        <button class="btn btn-primary">Vertel ons je idee</button>
+        <button class="btn btn-ghost">Bekijk het logboek</button>
+      </div>
+    </div>
+    <div class="plate gaugeplate"><span class="rivet-bl"></span><span class="rivet-br"></span>
+      <div class="gaugelabel">AANVRAGEN · DRUK OP HET SYSTEEM</div>
+      <svg class="gauge" viewBox="0 0 300 180">
+        <path d="M30 150 A120 120 0 0 1 270 150" fill="none" stroke="#dcdfd6" stroke-width="22"/>
+        <path d="M30 150 A120 120 0 0 1 90 54" fill="none" stroke="#3f8f5f" stroke-width="22"/>
+        <path d="M90 54 A120 120 0 0 1 210 54" fill="none" stroke="#c98b2e" stroke-width="22"/>
+        <path d="M210 54 A120 120 0 0 1 270 150" fill="none" stroke="#d64530" stroke-width="22"/>
+        <g class="needle"><line x1="150" y1="150" x2="150" y2="48" stroke="#12181d" stroke-width="5" stroke-linecap="round"/><circle cx="150" cy="150" r="10" fill="#12181d"/></g>
+      </svg>
+      <div class="gaugereadout">+73%</div>
+      <div class="gaugesub">meer aanvragen, iWannaBurnFat — eerste inschatting</div>
+    </div>
+  </div>
+</header>
+
+<div class="logrow">
+  <div class="wrap">
+    <div class="logtrack">
+      <span class="logtag">ROHI</span><span class="logtag">iWannaBurnFat</span><span class="logtag">Bestehondenvoer.nl</span><span class="logtag">The Candy Safe</span><span class="logtag">Sakeenah Reizen</span><span class="logtag">E&amp;G Groep</span><span class="logtag">Jarritos</span>
+    </div>
+  </div>
+</div>
+
+<section id="diensten">
+  <div class="wrap">
+    <div class="sh"><h2>Vier kleppen, één installatie.</h2><p>Elke klep regelt zijn eigen druk, maar ze werken op hetzelfde systeem.</p></div>
+    <div class="valverow">
+      <div class="plate valve"><span class="rivet-bl"></span><span class="rivet-br"></span><div class="vdial"><b>01</b></div><h3>Webdesign</h3><p>Maatwerk sites die bezoekers naar contact leiden.</p></div>
+      <div class="plate valve"><span class="rivet-bl"></span><span class="rivet-br"></span><div class="vdial"><b>02</b></div><h3>E-commerce</h3><p>Webshops waar bestellen vanzelfsprekend voelt.</p></div>
+      <div class="plate valve"><span class="rivet-bl"></span><span class="rivet-br"></span><div class="vdial"><b>03</b></div><h3>Strategie</h3><p>Een plan op basis van data, niet op gevoel.</p></div>
+      <div class="plate valve"><span class="rivet-bl"></span><span class="rivet-br"></span><div class="vdial"><b>04</b></div><h3>Campagnes</h3><p>Advertenties die budget omzetten in aanvragen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="logwall">
+  <div class="wrap">
+    <div class="sh"><h2>Het onderhoudslogboek.</h2><p>Elke ingreep staat genoteerd: wat we deden, en wat het opleverde.</p></div>
+    <div class="logboek">
+      <div class="plate logentry"><span class="rivet-bl"></span><span class="rivet-br"></span><div class="logdate">ROHI — WEBSHOP</div><h3>Shoppen zonder frictie</h3><p>Navigatie en filters herbouwd rond gebruiksgemak.</p><span class="logresult">-42% bounce</span></div>
+      <div class="plate logentry"><span class="rivet-bl"></span><span class="rivet-br"></span><div class="logdate">BESTEHONDENVOER.NL — WEBSHOP</div><h3>Van twijfel naar klant</h3><p>Slimme filters en adviescontent voor hondenvoer.</p><span class="logresult">+92% bestellingen</span></div>
+      <div class="plate logentry"><span class="rivet-bl"></span><span class="rivet-br"></span><div class="logdate">SAKEENAH REIZEN — WEBDESIGN</div><h3>Scherpere branding</h3><p>Nieuwe site, strategie en visuele identiteit.</p><span class="logresult">2,5x aanvragen</span></div>
+    </div>
+    <p class="logcaveat" style="margin-top:20px;text-align:center">Cijfers zijn een eerste inschatting; we passen ze aan zodra definitieve resultaten binnen zijn.</p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2 style="margin-bottom:28px">Klaar om de druk op te voeren?</h2>
+    <a class="lever" href="#"><div class="leverhandle">START</div><div class="leverbase"></div></a>
+  </div>
+</section>
+
+<footer>the future design — Almere, Nederland — info@thefuturedesign.nl</footer>
+
+</body>
+</html>
