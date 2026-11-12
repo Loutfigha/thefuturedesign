@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060A18">
+<title>Concept 5 · Aeline-structuur + Aurora Night / vlam-accent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=11">
+<style>
+/* additions specific to this concept — floating stat collage + proof bento + service-card toppers */
+.fchip{position:absolute;z-index:2;background:var(--surface-1);border:1px solid var(--line-subtle);border-radius:var(--radius-md);padding:14px 18px;box-shadow:var(--shadow-card);text-align:left;min-width:120px}
+.fchip b{display:block;font-family:var(--font-head);font-weight:600;font-size:22px;color:var(--text-primary);line-height:1}
+.fchip span{font-size:11px;color:var(--text-secondary);display:block;margin-top:5px}
+.fc1{top:-6%;left:-14%;transform:rotate(-7deg)}
+.fc2{bottom:2%;left:-10%;transform:rotate(5deg)}
+.fc3{top:40%;right:-16%;transform:rotate(6deg);min-width:108px}
+
+.proofgrid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:18px}
+.proofcard{border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column;justify-content:flex-end;min-height:220px}
+.proofcard.quote{grid-column:span 2;grid-row:span 2;background:var(--surface-1);border:1px solid var(--line-subtle)}
+.proofcard.quote q{font-family:var(--font-head);font-weight:600;font-size:22px;line-height:1.3;color:var(--text-primary);display:block;margin-bottom:18px;quotes:none}
+.proofcard.quote cite{font-style:normal;font-size:13px;color:var(--text-secondary)}
+.proofcard.quote cite b{color:var(--text-primary)}
+.proofcard.bright{background:linear-gradient(135deg,#FF9966,#FF3D8B);color:#1A0A10}
+.proofcard.bright span{font-size:12.5px;font-weight:600;opacity:.82}
+.proofcard.bright b{font-family:var(--font-head);font-size:40px;font-weight:700;line-height:1;margin:10px 0 2px}
+.proofcard.dark{background:var(--surface-1);border:1px solid var(--line-subtle)}
+.proofcard.dark span{font-size:12.5px;color:var(--text-secondary)}
+.proofcard.dark b{font-family:var(--font-head);font-size:36px;font-weight:700;line-height:1;margin:10px 0 2px;color:var(--text-primary)}
+@media(max-width:860px){.proofgrid{grid-template-columns:1fr 1fr}.proofcard.quote{grid-column:span 2;grid-row:auto;min-height:180px}}
+@media(max-width:560px){.proofgrid{grid-template-columns:1fr}.proofcard.quote{grid-column:span 1}}
+
+.svctop{display:flex;gap:9px;margin-bottom:16px}
+.svctop .sc{background:var(--surface-2);border:1px solid var(--line-subtle);border-radius:10px;padding:9px 11px;width:66px;flex:none}
+.svctop .sc:first-child{transform:rotate(-5deg)}
+.svctop .sc:last-child{transform:rotate(4deg);margin-top:12px}
+.svctop .sc .bln{height:5px;border-radius:3px;background:var(--line-subtle);margin-bottom:5px}
+.svctop .sc .bln:last-child{width:58%;margin-bottom:0}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="lgP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#7C3AED"/></linearGradient>
+  </defs>
+</svg>
+
+<nav>
+  <div class="navpill">
+    <a class="brand" href="../index.html">
+      <svg class="flame" viewBox="0 0 490 570"><defs><linearGradient id="lgP2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B3CF7"/><stop offset="1" stop-color="#C77DF2"/></linearGradient><linearGradient id="lgC2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22B4F6"/><stop offset="1" stop-color="#1CD3F2"/></linearGradient><linearGradient id="lgH2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF4A8D"/><stop offset="1" stop-color="#FF9B60"/></linearGradient></defs><path fill="url(#lgP2)" d="M252 5 L412 166 C470 224 492 300 478 372 C462 462 382 548 262 563 C200 570 150 556 128 536 L232 442 C262 392 232 330 226 280 C216 200 222 62 252 5 Z"/><path fill="url(#lgC2)" d="M133 125 L288 264 C348 320 362 420 322 482 C290 530 238 556 214 563 C176 562 148 552 128 536 C108 476 122 420 132 380 C112 318 108 200 133 125 Z"/><path fill="url(#lgH2)" d="M28 227 L170 365 C216 410 216 482 170 516 C152 530 138 536 128 536 C58 506 6 440 6 352 C6 300 14 262 28 227 Z"/></svg>
+      <span>the future design</span>
+    </a>
+    <div class="navlinks">
+      <a href="#projecten">Projecten</a><a href="#diensten">Wat we doen</a><a href="#">Over ons</a><a href="#">Contact</a>
+    </div>
+    <a class="btn btn-primary" href="#plan">Plan een gesprek <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></a>
+  </div>
+</nav>
+
+<header class="hero2" id="top">
+  <div class="wrap h2grid">
+    <div class="rv in">
+      <span class="kick"><i></i>Webdesign &amp; digital marketing · Almere</span>
+      <h1>Merken bouwen die het <span class="accent">verschil maken.</span></h1>
+      <p class="sub">Eén team voor webdesign, webshop, strategie en campagnes — gebouwd om te converteren, niet alleen om mooi te zijn.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary">Vertel ons je idee <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></button>
+        <a class="btn btn-ghost" href="#projecten">Bekijk projecten</a>
+      </div>
+      <div class="microtrust"><div><b>50+</b>projecten afgerond</div><div><b>5</b>echte cases, geen stockfoto's</div></div>
+    </div>
+    <div class="hero-vis rv in" style="transition-delay:80ms">
+      <div class="tfd-aurora" aria-hidden="true"></div>
+      <div class="tfd-orb" aria-hidden="true"></div>
+      <div class="fchip fc1"><b>&minus;42%</b><span>bouncepercentage · ROHI</span></div>
+      <div class="fchip fc2"><b>+92%</b><span>bestellingen · Bestehondenvoer.nl</span></div>
+      <div class="fchip fc3"><b>+73%</b><span>aanvragen · iWannaBurnFat</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="logos">
+  <div class="wrap logorow">
+    <img src="../images/clients/all4home.png" alt="ALL4HOME" loading="lazy" width="402" height="80">
+    <img src="../images/clients/docentenhuren.svg" alt="DocentenHuren.nl" loading="lazy" width="82" height="49">
+    <img src="../images/clients/bestehondenvoer.png" alt="Bestehondenvoer.nl" loading="lazy" width="121" height="80">
+    <img src="../images/clients/dienstenmarketing.png" alt="DienstenMarketing.nl" loading="lazy" width="655" height="80">
+    <img src="../images/clients/eg-groep.png" alt="E&amp;G Groep" loading="lazy" width="110" height="80">
+    <img src="../images/clients/horizone-coaching.png" alt="Horizone Coaching" loading="lazy" width="80" height="80">
+    <img src="../images/clients/iwannaburnfat.png" alt="iWannaBurnFat" loading="lazy" width="500" height="80">
+    <img src="../images/clients/jarritos.png" alt="Jarritos" loading="lazy" width="93" height="80">
+    <img src="../images/clients/rohi.png" alt="Rohi" loading="lazy" width="95" height="80">
+    <img src="../images/clients/sakeenah-reizen.png" alt="Sakeenah Reizen" loading="lazy" width="142" height="80">
+    <!-- duplicated for seamless marquee loop -->
+    <img src="../images/clients/all4home.png" alt="" loading="lazy" width="402" height="80">
+    <img src="../images/clients/docentenhuren.svg" alt="" loading="lazy" width="82" height="49">
+    <img src="../images/clients/bestehondenvoer.png" alt="" loading="lazy" width="121" height="80">
+    <img src="../images/clients/dienstenmarketing.png" alt="" loading="lazy" width="655" height="80">
+    <img src="../images/clients/eg-groep.png" alt="" loading="lazy" width="110" height="80">
+    <img src="../images/clients/horizone-coaching.png" alt="" loading="lazy" width="80" height="80">
+    <img src="../images/clients/iwannaburnfat.png" alt="" loading="lazy" width="500" height="80">
+    <img src="../images/clients/jarritos.png" alt="" loading="lazy" width="93" height="80">
+    <img src="../images/clients/rohi.png" alt="" loading="lazy" width="95" height="80">
+    <img src="../images/clients/sakeenah-reizen.png" alt="" loading="lazy" width="142" height="80">
+  </div>
+</div>
+
+<section id="bewijs">
+  <div class="wrap">
+    <div class="sh rv in">
+      <span class="lbl">Bewijs, geen beloftes</span>
+      <h2>Resultaat dat we durven laten zien.</h2>
+    </div>
+    <div class="proofgrid">
+      <div class="proofcard quote rv in">
+        <q>&ldquo;Damesmode-webshop herontworpen en gebouwd met gebruiksgemak voorop. Shoppen voelt weer moeiteloos.&rdquo;</q>
+        <cite><b>ROHI</b> · webshop &amp; UX</cite>
+      </div>
+      <div class="proofcard bright rv in" style="transition-delay:60ms">
+        <span>Bestehondenvoer.nl</span>
+        <b>+92%</b>
+        <span>meer bestellingen</span>
+      </div>
+      <div class="proofcard dark rv in" style="transition-delay:120ms">
+        <span>iWannaBurnFat</span>
+        <b>+73%</b>
+        <span>meer aanvragen</span>
+      </div>
+      <div class="proofcard dark rv in" style="transition-delay:180ms">
+        <span>Sakeenah Reizen</span>
+        <b>2,5x</b>
+        <span>meer aanvragen</span>
+      </div>
+      <div class="proofcard bright rv in" style="transition-delay:240ms">
+        <span>The Candy Safe</span>
+        <b>+65%</b>
+        <span>meer bestellingen</span>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--text-secondary);margin-top:18px">Cijfers zijn een eerste inschatting op basis van de projectresultaten, geen geaudit resultaat.</p>
+  </div>
+</section>
+
+<section id="diensten">
+  <div class="wrap">
+    <div class="sh rv in">
+      <span class="lbl">Wat we doen</span>
+      <h2>Vier specialismen, <span class="dim">één doel: jouw resultaat.</span></h2>
+    </div>
+    <div class="bento4">
+      <a class="bentocard rv in" href="#">
+        <span class="bn" aria-hidden="true">01</span>
+        <div class="svctop" aria-hidden="true"><div class="sc"><div class="bln"></div><div class="bln"></div><div class="bln"></div></div><div class="sc"><div class="bln"></div><div class="bln"></div></div></div>
+        <div class="bobj nebula" aria-hidden="true"></div>
+        <h3>Webdesign</h3>
+        <p>Maatwerk websites die vertrouwen wekken en bezoekers moeiteloos de weg wijzen naar contact.</p>
+        <span class="barr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+      </a>
+      <a class="bentocard rv in" href="#" style="transition-delay:60ms">
+        <span class="bn" aria-hidden="true">02</span>
+        <div class="svctop" aria-hidden="true"><div class="sc"><div class="bln"></div><div class="bln"></div><div class="bln"></div></div><div class="sc"><div class="bln"></div><div class="bln"></div></div></div>
+        <div class="bobj glacier" aria-hidden="true"></div>
+        <h3>E-commerce</h3>
+        <p>Webshops waar bestellen vanzelfsprekend voelt, van productpagina tot afgeronde betaling.</p>
+        <span class="barr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+      </a>
+      <a class="bentocard rv in" href="#" style="transition-delay:120ms">
+        <span class="bn" aria-hidden="true">03</span>
+        <div class="svctop" aria-hidden="true"><div class="sc"><div class="bln"></div><div class="bln"></div><div class="bln"></div></div><div class="sc"><div class="bln"></div><div class="bln"></div></div></div>
+        <div class="bobj nebula" aria-hidden="true"></div>
+        <h3>Strategie</h3>
+        <p>Een duidelijk plan voor merk, kanalen en groei, onderbouwd met data in plaats van aannames.</p>
+        <span class="barr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+      </a>
+      <a class="bentocard rv in" href="#" style="transition-delay:180ms">
+        <span class="bn" aria-hidden="true">04</span>
+        <div class="svctop" aria-hidden="true"><div class="sc"><div class="bln"></div><div class="bln"></div><div class="bln"></div></div><div class="sc"><div class="bln"></div><div class="bln"></div></div></div>
+        <div class="bobj prism" aria-hidden="true"></div>
+        <h3>Campagnes</h3>
+        <p>Advertenties op Meta en Google die je budget omzetten in concrete aanvragen en bestellingen.</p>
+        <span class="barr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="werk" id="projecten">
+  <div class="wrap">
+    <div class="sh rv in">
+      <span class="lbl">Projecten</span>
+      <h2>Werk waar we trots op zijn.</h2>
+      <p>Elk project vertrekt vanuit een plan en eindigt in meetbaar resultaat. Bekijk hoe dat eruitziet.</p>
+    </div>
+    <div class="cgrid" style="grid-template-columns:repeat(3,1fr)">
+      <a class="ccard rv in" href="#">
+        <div class="cimg ci1"><div class="mock"><div class="b s"></div><div class="hero-b hb1"></div><div class="b"></div></div></div>
+        <div class="cbody">
+          <div class="tags"><span class="tag">Webdesign</span><span class="tag">Webshop</span><span class="tag">UX</span></div>
+          <h3>ROHI</h3>
+          <p>Damesmode-webshop herontworpen en gebouwd met gebruiksgemak voorop.</p>
+          <span class="metric">&minus;42% bouncepercentage</span>
+        </div>
+      </a>
+      <a class="ccard rv in" href="#" style="transition-delay:60ms">
+        <div class="cimg ci2"><div class="mock"><div class="b s"></div><div class="hero-b hb2"></div><div class="b"></div></div></div>
+        <div class="cbody">
+          <div class="tags"><span class="tag">E-commerce</span><span class="tag">Webshop</span><span class="tag">SEO</span></div>
+          <h3>Bestehondenvoer.nl</h3>
+          <p>Nieuwe webshop met slimme filters en adviescontent voor hondenvoer.</p>
+          <span class="metric hot">+92% meer bestellingen</span>
+        </div>
+      </a>
+      <a class="ccard rv in" href="#" style="transition-delay:120ms">
+        <div class="cimg ci1"><div class="mock"><div class="b s"></div><div class="hero-b hb1"></div><div class="b"></div></div></div>
+        <div class="cbody">
+          <div class="tags"><span class="tag">Webdesign</span><span class="tag">Branding</span><span class="tag">UX</span></div>
+          <h3>iWannaBurnFat</h3>
+          <p>Nieuwe website die de energie van het merk direct voelbaar maakt.</p>
+          <span class="metric hot">+73% meer aanvragen</span>
+        </div>
+      </a>
+    </div>
+    <div class="wrap" style="text-align:center;margin-top:24px;padding:0">
+      <a class="btn btn-ghost" href="#">Bekijk alle projecten <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="plan" id="plan">
+  <div class="planin rv in">
+    <div>
+      <span class="lbl">Vrijblijvend adviesgesprek</span>
+      <h2>Zullen we eens sparren over jouw groei?</h2>
+      <p class="lead">Kies een moment in de agenda en vertel waar je naartoe wilt. Wij denken hardop met je mee.</p>
+      <div class="pitem"><div class="chip p" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div><div><b>30 minuten, online</b><span>Kort, concreet en op een moment dat jou uitkomt.</span></div></div>
+      <div class="pitem"><div class="chip b" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.4.3.6.8.6 1.2v.5h6v-.5c0-.4.2-.9.6-1.2A6 6 0 0 0 12 3z"/></svg></div><div><b>Direct toepasbare inzichten</b><span>Ook als je (nog) niet met ons verder gaat.</span></div></div>
+      <div class="pitem"><div class="chip h" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14 2v5h5"/><path d="M8 13h8M8 17h5"/></svg></div><div><b>Voorstel binnen 48 uur</b><span>Past het? Dan ontvang je snel een helder plan met prijs.</span></div></div>
+      <p class="soft-note">Vrijblijvend, je zit nergens aan vast.</p>
+    </div>
+    <div class="calbox">
+      <iframe src="about:blank" title="Boek een adviesgesprek via Cal.com (placeholder in dit concept)" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="fstate">
+      <div>
+        <a class="brand" href="../index.html" style="color:#fff">
+          <svg class="flame" viewBox="-10 -10 510 590"><g fill="#EAF0FF" stroke="#060A18" stroke-width="18" stroke-linejoin="round" paint-order="stroke"><path d="M252 5 L412 166 C470 224 492 300 478 372 C462 462 382 548 262 563 C200 570 150 556 128 536 L232 442 C262 392 232 330 226 280 C216 200 222 62 252 5 Z" stroke="none"/><path d="M133 125 L288 264 C348 320 362 420 322 482 C290 530 238 556 214 563 C176 562 148 552 128 536 C108 476 122 420 132 380 C112 318 108 200 133 125 Z"/><path d="M28 227 L170 365 C216 410 216 482 170 516 C152 530 138 536 128 536 C58 506 6 440 6 352 C6 300 14 262 28 227 Z"/></g></svg>
+          <span>the future design</span>
+        </a>
+        <h2>Samen bouwen we aan <span style="color:var(--text-secondary)">de digitale toekomst van jouw merk.</span></h2>
+        <p>Website, webshop of campagne: vertel ons waar je naartoe wilt en we maken het waar.</p>
+        <a class="btn btn-light" href="#">Vertel ons je idee <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span></a>
+        <div class="fbadges" style="margin-top:20px"><span class="fbadge p">web design</span><span class="fbadge h">digital marketing</span></div>
+      </div>
+      <div class="fgrid">
+        <div>
+          <h4>Wat we doen</h4>
+          <a href="#">Webdesign</a><a href="#">E-commerce</a><a href="#">Strategie</a><a href="#">Campagnes</a>
+        </div>
+        <div>
+          <h4>Bureau</h4>
+          <a href="#">Projecten</a><a href="#">Over ons</a><a href="#">Adviesgesprek</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:info@thefuturedesign.nl">info@thefuturedesign.nl</a>
+          <a href="tel:+31657815202">+31 6 57 81 52 02</a>
+          <a>Almere, Nederland</a>
+        </div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 The Future Design. Alle rechten voorbehouden.</span>
+      <span><a href="#">Privacybeleid</a> · <a href="#">Algemene voorwaarden</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+})();
+</script>
+
+</body>
+</html>

@@ -65,6 +65,60 @@
         ],
         "createdAt": "2026-11-12T10:17:16.945Z",
         "reason": "Same brief-pinned editorial register as above: Fraunces was chosen to match the warm high-contrast editorial serif observed in the webfluencer.nl reference the user asked to follow, not reached for as a reflexive default."
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-12T10:45:27.450Z",
+        "reason": "All 6 instances (--shadow-glow on .btn-primary, --shadow-orb on .tfd-orb, --shadow-glow-violet / .bobj nebula-glacier-prism colored shadows) are inherited verbatim from the live, already-shipped Aurora Night system (style.css), not newly introduced in this comp. These are the brand's deliberate, named glow-elevation language, already live on thefuturedesign.nl today."
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-12T10:45:27.464Z",
+        "reason": "The .kick eyebrow is copied verbatim from the live homepage's existing hero2 component, and matches CLAUDE.md's documented .sh+.lbl 'sectiekop met eyebrow' building block used site-wide. Established project convention, not a fresh default."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-12T10:45:27.479Z",
+        "reason": "Inter is the live site's established body font (CLAUDE.md: 'Inter voor tekst'), inherited unchanged, not freshly chosen for this comp."
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-12T10:45:27.492Z",
+        "reason": "Purple and cyan are The Future Design's actual trademark logo colors (CLAUDE.md: 'Merkkleuren komen uit het logo: --purple ... --cyan'), not a generic AI palette reach -- they are literal brand truth, already live site-wide."
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-12T10:45:27.503Z",
+        "reason": "Two findings: (1) .logorow client-logo marquee is copied verbatim from the already-shipped live homepage, already prefers-reduced-motion-compliant via style.css's global animation:none rule; changing it here only would create cross-page inconsistency the project explicitly warns against. (2) .striptrack is a false positive -- confirmed via grep that this markup does not exist anywhere in this file's DOM; the detector matched it from the linked style.css file, which this page does not instantiate."
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-12T10:45:33.858Z",
+        "reason": "Advisory-only :hover state (white on --action-hover #4A6DFF, 4.3:1) on .btn-primary, inherited unchanged from the live, already-shipped button component. Pre-existing live state, out of scope for this comp."
       }
     ]
   }
