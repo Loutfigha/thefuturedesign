@@ -119,6 +119,69 @@
         ],
         "createdAt": "2026-11-12T10:45:33.858Z",
         "reason": "Advisory-only :hover state (white on --action-hover #4A6DFF, 4.3:1) on .btn-primary, inherited unchanged from the live, already-shipped button component. Pre-existing live state, out of scope for this comp."
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T09:42:06.146Z",
+        "reason": "User asked to restore the site's actual historical brand design (confirmed via git history commit e43fe21 and the user's own referenced claude.ai artifact of the original site). Purple is the real, documented logo/brand color, not a generic AI palette reach."
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T09:42:06.162Z",
+        "reason": "Exact restoration of the original site's .kick eyebrow component (confirmed identical in git history prior to the Aurora Night rebrand), not a freshly invented default."
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T09:42:06.176Z",
+        "reason": "Matches the original pre-Aurora-Night .bcard:hover treatment exactly (border + soft shadow on hover only, confirmed in git history), restored as part of reverting to the site's real historical design per the user's request."
+      },
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T09:42:06.192Z",
+        "reason": "The site's actual original heading font before the Aurora Night rebrand (confirmed in git history and CLAUDE.md), restored at the user's explicit request -- not a reflexive default."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T09:42:06.207Z",
+        "reason": "The site's original and still-current body font, unchanged across every design iteration including this restoration."
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T09:42:06.220Z",
+        "reason": "Exact restoration of the original .kick i blink dot (confirmed in git history), a decorative detail of the real historical brand, not a fabricated liveness signal."
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T09:42:06.234Z",
+        "reason": "Both the client-logo marquee and the (unused) mockup-strip component are restorations of the original site's own components (confirmed in git history), already reduced-motion-compliant."
       }
     ]
   }
