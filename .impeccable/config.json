@@ -182,6 +182,42 @@
         ],
         "createdAt": "2026-11-13T09:42:06.234Z",
         "reason": "Both the client-logo marquee and the (unused) mockup-strip component are restorations of the original site's own components (confirmed in git history), already reduced-motion-compliant."
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "style.css"
+        ],
+        "createdAt": "2026-11-13T09:45:18.347Z",
+        "reason": "The gradient-clip accent on h1 .accent is the site's real, original brand treatment (confirmed in git history at commit e43fe21, predating the Aurora Night rebrand, and matching the user's own referenced claude.ai artifact of the original site) -- restored at the user's explicit request, not a generic AI tell."
+      },
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-13T09:45:18.364Z",
+        "reason": "This exploratory comp links to the live style.css, which now carries the site's real restored Space Grotesk heading font (see index.html's own suppression for the same reason). This comp is superseded by the user's choice to keep the original design and is not shipped."
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-13T09:45:18.378Z",
+        "reason": "Inherited .kick dot styling from the real restored style.css (same reasoning as index.html's suppression). This exploratory comp is superseded and not shipped."
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "concepten/5-aeline-tfd.html"
+        ],
+        "createdAt": "2026-11-13T09:45:25.155Z",
+        "reason": "Inherited card styling from the live style.css (bentocard/proofcard). This exploratory comp is superseded by the user's choice to keep the original design and is not shipped."
       }
     ]
   }
